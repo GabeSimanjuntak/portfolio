@@ -73,7 +73,12 @@ export function getAllProjects(locale: string = "id"): Project[] {
     return [];
   }
 
-  const files = fs.readdirSync(contentDirectory);
+  const files = fs.readdirSync(contentDirectory).sort((a, b) => {
+    const featuredProject = "desataonmarisi.mdx";
+    if (a === featuredProject) return -1;
+    if (b === featuredProject) return 1;
+    return a.localeCompare(b);
+  });
 
   const projects = files
     .filter((filename) => filename.endsWith(".mdx"))

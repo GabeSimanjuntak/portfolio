@@ -66,8 +66,23 @@ export default function Navbar({ locale }: NavbarProps) {
     };
   }, []);
 
+  useEffect(() => {
+    const targetLocale = window.sessionStorage.getItem("portfolio-scroll-locale");
+    const targetSection = window.sessionStorage.getItem("portfolio-scroll-section");
+    if (targetLocale !== locale || !targetSection) return;
+
+    window.sessionStorage.removeItem("portfolio-scroll-locale");
+    window.sessionStorage.removeItem("portfolio-scroll-section");
+    setActiveSection(targetSection);
+
+    requestAnimationFrame(() => {
+      document.getElementById(targetSection)?.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+  }, [locale]);
   const handleLanguageToggle = () => {
     const nextLocale = locale === "id" ? "en" : "id";
+    window.sessionStorage.setItem("portfolio-scroll-locale", nextLocale);
+    window.sessionStorage.setItem("portfolio-scroll-section", activeSection);
     const pathname = window.location.pathname;
     const localizedPath = /^\/(id|en)(?=\/|$)/.test(pathname)
       ? pathname.replace(/^\/(id|en)(?=\/|$)/, `/${nextLocale}`)
