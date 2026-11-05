@@ -1,0 +1,96 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects"
+  },
+  "hero": {
+    "greeting": "Hello, I am",
+    "role": "Fullstack Developer",
+    "tagline": "Every challenge is an opportunity to learn, every project is a chance to grow, and every line of code is a step toward creating meaningful digital solutions.",
+    "ctaProjects": "View Projects",
+    "ctaContact": "Contact Me"
+  },
+  "about": {
+    "sectionTitle": "ABOUT ME",
+    "greeting": "I AM",
+    "name": "Gabe Simanjuntak",
+    "role": "FULLSTACK DEVELOPER",
+    "bio": "Hi, I'm Gabe Simanjuntak.\n\n I am a Software Engineering enthusiast with a passion for building modern, user-friendly, and impactful digital solutions. I enjoy developing web and mobile applications, designing intuitive user experiences, and continuously learning new technologies. My interests include full-stack development, UI/UX design, API integration, and software testing. I believe that great software is not only functional but also meaningful for its users.",
+    "downloadCv": "DOWNLOAD CV"
+  },
+  "skills": {
+    "title": "Tech",
+    "accent": "Skills"
+  },
+  "experience": {
+    "title": "Campus",
+    "accent": "Experience",
+    "subtitle": "A place to learn, contribute, and celebrate achievements throughout university life.",
+    "list": [
+      {
+        "number": "01",
+        "context": "Outstanding Dormitory Student",
+        "type": "achievement",
+        "category": "Achievement",
+        "title": "Best Male Dormitory Student",
+        "period": "2025 · Semester 3",
+        "description": "Recognized as the best male dormitory student for Semester 3, 2025."
+      },
+      {
+        "number": "02",
+        "context": "Best Dormitory Room",
+        "type": "achievement",
+        "category": "Achievement",
+        "title": "Best Dormitory Room",
+        "period": "2025 · Semesters 3 & 4",
+        "description": "Received the Best Dormitory Room recognition for Semesters 3 and 4, 2025."
+      },
+      {
+        "number": "03",
+        "context": "IDG Committee",
+        "type": "committee",
+        "category": "Committee",
+        "title": "Exhibition Division",
+        "period": "2025",
+        "description": "Supported exhibition planning and delivery as a member of the IDG Exhibition Division committee."
+      },
+      {
+        "number": "04",
+        "context": "IDG Committee",
+        "type": "committee",
+        "category": "Committee",
+        "title": "Exhibition Division",
+        "period": "2026",
+        "description": "Returned to the IDG Exhibition Division committee in 2026."
+      }
+    ]
+  },
+  "certificates": {
+    "title": "Certificates &",
+    "accent": "Awards"
+  },
+  "projects": {
+    "title": "Featured",
+    "accent": "Works",
+    "subtitle": "A collection of projects I've built, ranging from user interfaces to complex backend systems.",
+    "drawer": {
+      "close": "Close",
+      "techStack": "Technologies Used",
+      "viewLive": "View Live Project",
+      "sourceCode": "Source Code"
+    }
+  },
+  "contact": {
+    "title": "Get In",
+    "accent": "Touch",
+    "subtitle": "Have a project idea, a question, or just want to say hi? Feel free to drop a message. I'm always open to new collaborative opportunities.",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email Address",
+    "emailPlaceholder": "name@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project or idea...",
+    "send": "Send Message"
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#EEF2FF"/>
+  <path d="M23 20h-4a4 4 0 0 0-4 4v4a4 4 0 0 1-4 4 4 4 0 0 1 4 4v4a4 4 0 0 0 4 4h4M41 20h4a4 4 0 0 1 4 4v4a4 4 0 0 0 4 4 4 4 0 0 0-4 4v4a4 4 0 0 1-4 4h-4" stroke="#5B5FEF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="36" text-anchor="middle" fill="#3438A8" font-family="Arial,sans-serif" font-size="10" font-weight="700">API</text>
+</svg>

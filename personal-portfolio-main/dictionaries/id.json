@@ -1,0 +1,96 @@
+{
+  "navbar": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek"
+  },
+  "hero": {
+    "greeting": "Halo, Saya",
+    "role": "Fullstack Developer",
+    "tagline": "Setiap tantangan adalah kesempatan untuk belajar, setiap proyek adalah peluang untuk berkembang, dan setiap baris kode adalah langkah menuju terciptanya solusi digital yang bermakna.",
+    "ctaProjects": "Lihat Proyek",
+    "ctaContact": "Hubungi Saya"
+  },
+  "about": {
+    "sectionTitle": "ABOUT ME",
+    "greeting": "SAYA",
+    "name": "Gabe Simanjuntak",
+    "role": "FULLSTACK DEVELOPER",
+    "bio": "Halo, saya Gabe Simanjuntak.\n\nSaya adalah seorang yang memiliki minat di bidang Software Engineering dengan ketertarikan dalam membangun solusi digital yang modern, mudah digunakan, dan memberikan manfaat nyata. Saya senang mengembangkan aplikasi web maupun mobile, merancang pengalaman pengguna yang intuitif, serta terus mempelajari teknologi baru. Minat saya meliputi pengembangan full-stack, desain UI/UX, integrasi API, dan software testing. Saya percaya bahwa perangkat lunak yang baik bukan hanya berfungsi dengan baik, tetapi juga mampu memberikan nilai dan pengalaman terbaik bagi penggunanya.",
+    "downloadCv": "UNDUH CV"
+  },
+  "skills": {
+    "title": "Keahlian",
+    "accent": "Teknis"
+  },
+  "experience": {
+    "title": "Pengalaman",
+    "accent": "Kampus",
+    "subtitle": "Ruang untuk belajar, berkontribusi, dan meraih pencapaian selama masa perkuliahan.",
+    "list": [
+      {
+        "number": "01",
+        "context": "Mahasiswa Asrama Terbaik",
+        "type": "achievement",
+        "category": "Pencapaian",
+        "title": "Mahasiswa Asrama Putra Terbaik",
+        "period": "2025 · Semester 3",
+        "description": "Meraih penghargaan sebagai mahasiswa asrama putra terbaik untuk Semester 3 tahun 2025."
+      },
+      {
+        "number": "02",
+        "context": "Kamar Asrama Terbaik",
+        "type": "achievement",
+        "category": "Pencapaian",
+        "title": "Kamar Asrama Terbaik",
+        "period": "2025 · Semester 3 & 4",
+        "description": "Menerima penghargaan kamar asrama terbaik untuk Semester 3 dan 4 tahun 2025."
+      },
+      {
+        "number": "03",
+        "context": "Panitia IDG",
+        "type": "committee",
+        "category": "Kepanitiaan",
+        "title": "Divisi Pameran",
+        "period": "2025",
+        "description": "Menjadi bagian dari panitia IDG di Divisi Pameran, membantu persiapan hingga pelaksanaan kegiatan pameran."
+      },
+      {
+        "number": "04",
+        "context": "Panitia IDG",
+        "type": "committee",
+        "category": "Kepanitiaan",
+        "title": "Divisi Pameran",
+        "period": "2026",
+        "description": "Kembali bergabung dengan panitia IDG di Divisi Pameran pada tahun 2026."
+      }
+    ]
+  },
+  "certificates": {
+    "title": "Sertifikat &",
+    "accent": "Penghargaan"
+  },
+  "projects": {
+    "title": "Karya",
+    "accent": "Terbaik",
+    "subtitle": "Kumpulan proyek yang telah saya bangun, mulai dari desain antarmuka hingga sistem backend yang kompleks.",
+    "drawer": {
+      "close": "Tutup",
+      "techStack": "Teknologi yang Digunakan",
+      "viewLive": "Lihat Proyek Asli",
+      "sourceCode": "Kode Sumber"
+    }
+  },
+  "contact": {
+    "title": "Hubungi",
+    "accent": "Saya",
+    "subtitle": "Punya ide proyek, pertanyaan, atau sekadar ingin menyapa? Jangan ragu untuk mengirimkan pesan. Saya selalu terbuka untuk peluang kolaborasi baru.",
+    "name": "Nama Lengkap",
+    "namePlaceholder": "Masukkan nama Anda",
+    "email": "Alamat Email",
+    "emailPlaceholder": "nama@email.com",
+    "message": "Pesan",
+    "messagePlaceholder": "Ceritakan tentang proyek atau ide Anda...",
+    "send": "Kirim Pesan"
+  }
+}
