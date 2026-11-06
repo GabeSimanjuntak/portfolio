@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero"; 
 import About from "@/components/About";
 import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 import Certificates from "@/components/Certificates";
 import Projects from "@/components/Projects"; // <-- Import Komponen Projects Baru
 import Contact from "@/components/Contact";
@@ -25,13 +25,13 @@ export default async function Home({ params }: { params: any }) {
       {dict?.about && <About dict={dict.about} />}
 
       {/* 3. Skills Section */}
-      {dict?.skills && <Skills dict={dict.skills} />}
+      {dict?.skills && <Skills dict={dict.skills} locale={locale === "en" ? "en" : "id"} />}
 
       {/* 4. Certificates Section */}
       {dict?.certificates && <Certificates dict={dict.certificates} />}
 
-      {/* 5. Experience Section */}
-      {dict?.experience && <Experience dict={dict.experience} />}
+      {/* 5. Education Section */}
+      {dict?.education && <Education dict={dict.education} />}
 
       {/* 6. Projects Section */}
       {/* Kita passing dict khusus proyek dan array data projects-nya */}

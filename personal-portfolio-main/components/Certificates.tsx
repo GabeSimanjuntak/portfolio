@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Award } from "lucide-react";
 
@@ -31,6 +31,7 @@ const certificates = [
   { id: 14, alt: "Certificate 12", img: "images/certificate/AI for Beginners.jpg" },
   { id: 18, alt: "ReWork AI Engineering Fundamentals Mini Course", img: "/images/certificate/rework-ai-engineering-fundamentals.jpg" },
   { id: 19, alt: "Saylor University CS302 Software Engineering", img: "/images/certificate/saylor-cs302-software-engineering.jpg" },
+  { id: 20, alt: "Exhibition Division - Inauguration, Dies Natalis & Graduation Ceremony at Institut Teknologi Del (2025)", img: "/images/certificate/exhibition-division-institut-teknologi-del-2025.jpg" },
 ];
 
 export default function Certificates({ dict }: CertificatesProps) {
@@ -43,6 +44,15 @@ export default function Certificates({ dict }: CertificatesProps) {
     (page - 1) * ITEMS_PER_PAGE,
     page * ITEMS_PER_PAGE
   );
+
+  useEffect(() => {
+    if (selectedCert === null) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedCert(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedCert]);
 
   return (
     <section id="certificates" className="scroll-mt-14 py-12 md:py-20 relative">
@@ -66,8 +76,11 @@ export default function Certificates({ dict }: CertificatesProps) {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           >
             {currentCertificates.map((cert, index) => (
-              <motion.div
+              <motion.button
                 key={cert.id}
+                type="button"
+                aria-label={cert.alt}
+                aria-haspopup="dialog"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{
@@ -77,10 +90,11 @@ export default function Certificates({ dict }: CertificatesProps) {
                   stiffness: 100,
                 }}
                 whileHover={{ 
-                  scale: 1.05,
+                  scale: 1.035,
                   transition: { duration: 0.2 }
                 }}
-                className="group cursor-pointer"
+                whileTap={{ scale: 0.98 }}
+                className="group block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint focus-visible:ring-offset-4 rounded-xl"
                 onClick={() => setSelectedCert(cert.id)}
               >
                 <div className="relative rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl hover:shadow-brand-mint/30 transition-all duration-300">
@@ -96,7 +110,7 @@ export default function Certificates({ dict }: CertificatesProps) {
                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </motion.div>
         </AnimatePresence>
@@ -126,7 +140,11 @@ export default function Certificates({ dict }: CertificatesProps) {
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
                   key={i}
+                  type="button"
                   onClick={() => setPage(i + 1)}
+                  aria-label={`Go to certificate page ${i + 1}`}
+                  aria-current={i + 1 === page ? "page" : undefined}
+                  title={`Page ${i + 1}`}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     i + 1 === page
                       ? 'w-6 bg-brand-mint shadow-lg shadow-brand-mint/30'
@@ -156,6 +174,7 @@ export default function Certificates({ dict }: CertificatesProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            role="presentation"
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={() => setSelectedCert(null)}
           >
@@ -164,6 +183,10 @@ export default function Certificates({ dict }: CertificatesProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden shadow-2xl"
+              role="dialog"
+              aria-modal="true"
+              aria-label={certificates.find((cert) => cert.id === selectedCert)?.alt}
+              tabIndex={-1}
               onClick={(e) => e.stopPropagation()}
             >
               <img
@@ -172,8 +195,10 @@ export default function Certificates({ dict }: CertificatesProps) {
                 className="w-full h-auto"
               />
               <button
+                type="button"
+                aria-label="Close certificate preview"
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-all hover:scale-110 text-2xl"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-all hover:scale-110 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 ×
               </button>

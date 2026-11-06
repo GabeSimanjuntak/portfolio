@@ -61,7 +61,7 @@ export default function About({ dict }: AboutProps) {
             </div>
 
             {/* Baris 2: Role */}
-            <span className="bg-brand-mint text-brand-text px-3 py-1 rounded-xl whitespace-nowrap rotate-1 shadow-sm">
+            <span className="bg-brand-mint text-slate-950 px-3 py-1 rounded-xl whitespace-nowrap rotate-1 shadow-sm">
               {dict.role}
             </span>
           </h2>
@@ -77,14 +77,16 @@ export default function About({ dict }: AboutProps) {
 
           {/* Tombol Container */}
           <div className="pt-2">
-            <a
+            <motion.a
               href="/CV-GabeAkasiaSimanjuntak.pdf"
               download="CV-GabeAkasiaSimanjuntak.pdf"
+              whileHover={{ y: -3, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               // fix for button clipping: make horizontal padding responsive (px-6 -> px-8)
-              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-3.5 bg-brand-text text-white font-black rounded-full shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-3.5 bg-brand-purple text-white font-black rounded-full shadow-md hover:bg-brand-purple/90 hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2"
             >
               <Download className="w-5 h-5" /> {dict.downloadCv}
-            </a>
+            </motion.a>
           </div>
         </motion.div>
       </div>

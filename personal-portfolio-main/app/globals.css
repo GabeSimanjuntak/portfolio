@@ -19,6 +19,7 @@ html[data-theme="dark"] [class~="bg-white/95"] { background-color: rgb(21 28 46 
 html[data-theme="dark"] [class~="bg-white/90"] { background-color: rgb(21 28 46 / 90%) !important; }
 html[data-theme="dark"] [class~="bg-white/80"] { background-color: rgb(21 28 46 / 82%) !important; }
 html[data-theme="dark"] [class~="bg-white/60"] { background-color: rgb(21 28 46 / 72%) !important; }
+html[data-theme="dark"] [class~="bg-white/50"] { background-color: rgb(21 28 46 / 66%) !important; }
 html[data-theme="dark"] [class~="bg-white/30"] { background-color: rgb(255 255 255 / 18%) !important; }
 html[data-theme="dark"] [class~="bg-white/20"] { background-color: rgb(255 255 255 / 14%) !important; }
 html[data-theme="dark"] [class~="bg-white/10"] { background-color: rgb(255 255 255 / 9%) !important; }
@@ -26,6 +27,7 @@ html[data-theme="dark"] [class~="bg-white/5"] { background-color: rgb(255 255 25
 html[data-theme="dark"] [class~="border-white/70"] { border-color: rgb(255 255 255 / 14%) !important; }
 html[data-theme="dark"] [class~="border-white/20"],
 html[data-theme="dark"] [class~="border-white/10"] { border-color: rgb(255 255 255 / 12%) !important; }
+html[data-theme="dark"] [class~="text-amber-700"] { color: #fbbf24 !important; }
 
 @theme {
   --color-brand-bg: #fdfdfd;

@@ -60,22 +60,28 @@ export default function Projects({ dict, projects }: ProjectsProps) {
 
           {/* Navigation Buttons */}
           <div className="flex items-center gap-3">
-            <button
+            <motion.button
+              type="button"
               onClick={scrollPrev}
               disabled={prevBtnDisabled}
               aria-label="Previous Project"
+              whileHover={prevBtnDisabled ? undefined : { x: -3, scale: 1.05 }}
+              whileTap={prevBtnDisabled ? undefined : { scale: 0.92 }}
               className="w-12 h-12 rounded-full border border-brand-text/10 flex items-center justify-center text-brand-text/70 hover:bg-brand-text/5 hover:text-brand-amber transition-all disabled:opacity-30 disabled:cursor-not-allowed bg-white"
             >
               <ChevronLeft size={24} />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              type="button"
               onClick={scrollNext}
               disabled={nextBtnDisabled}
               aria-label="Next Project"
+              whileHover={nextBtnDisabled ? undefined : { x: 3, scale: 1.05 }}
+              whileTap={nextBtnDisabled ? undefined : { scale: 0.92 }}
               className="w-12 h-12 rounded-full border border-brand-text/10 flex items-center justify-center text-brand-text/70 hover:bg-brand-text/5 hover:text-brand-amber transition-all disabled:opacity-30 disabled:cursor-not-allowed bg-white"
             >
               <ChevronRight size={24} />
-            </button>
+            </motion.button>
           </div>
         </motion.div>
 
@@ -89,12 +95,22 @@ export default function Projects({ dict, projects }: ProjectsProps) {
           <div className="overflow-hidden -mx-6 px-6" ref={emblaRef}>
             <div className="flex gap-6 pb-8 pt-2">
               {projects.map((project, index) => (
-                <div 
+                <div
                   key={project.slug} 
                   onClick={() => setSelectedProject(project)}
-                  className="cursor-pointer flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[450px]" 
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      setSelectedProject(project);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-haspopup="dialog"
+                  aria-expanded={selectedProject?.slug === project.slug}
+                  aria-label={`Open project details: ${project.meta?.title ?? project.title ?? project.slug}`}
+                  className="group flex-shrink-0 w-[85vw] cursor-pointer text-left md:w-[45vw] lg:w-[450px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber focus-visible:ring-offset-4 rounded-[32px]" 
                 >
-                  {/* Kita hapus fungsi klik bawaan link di ProjectCard (jika ada) di langkah 4 */}
                   <ProjectCard project={project} index={index} />
                 </div>
               ))}

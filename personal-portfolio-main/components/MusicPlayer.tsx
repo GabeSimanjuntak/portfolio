@@ -117,9 +117,9 @@ export default function MusicPlayer() {
                     type="button"
                     onClick={() => selectTrack(index)}
                     aria-current={isSelected ? "true" : undefined}
-                    className={`flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left transition ${isSelected ? "bg-brand-purple/10 text-brand-purple" : "text-brand-text hover:bg-slate-100"}`}
+                    className={`flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left transition ${isSelected ? "bg-brand-purple/10 text-brand-purple" : "text-brand-text hover:bg-brand-text/10"}`}
                   >
-                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${isSelected ? "bg-brand-purple text-white" : "bg-slate-100 text-brand-text/60"}`}>
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${isSelected ? "bg-brand-purple text-white" : "bg-brand-text/10 text-brand-text/60"}`}>
                       {isSelected && isPlaying ? <Music2 aria-hidden="true" className="h-4 w-4" /> : isSelected ? <Play aria-hidden="true" className="ml-0.5 h-4 w-4 fill-current" /> : <Music2 aria-hidden="true" className="h-4 w-4" />}
                     </span>
                     <span className="min-w-0 flex-1">

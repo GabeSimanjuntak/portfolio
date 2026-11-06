@@ -117,13 +117,13 @@ export default function Contact({ dict }: ContactProps) {
               
               {/* Overlay Pesan Sukses */}
               {status === "success" && (
-                <div className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8">
+                <motion.div role="status" aria-live="polite" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8">
                   <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="w-20 h-20 bg-brand-mint/20 text-brand-mint rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 className="w-10 h-10" />
                   </motion.div>
                   <h4 className="text-2xl font-black text-brand-text mb-2">Pesan Terkirim!</h4>
                   <p className="text-brand-text/70 font-medium">Terima kasih telah menghubungi. Saya akan segera membalas pesan Anda.</p>
-                </div>
+                </motion.div>
               )}
 
               {/* Formulir */}
@@ -139,7 +139,7 @@ export default function Contact({ dict }: ContactProps) {
                     name="name" 
                     placeholder={dict.namePlaceholder}
                     disabled={status === "loading"}
-                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
+                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple focus:bg-brand-bg transition-all duration-200 font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
                     required
                   />
                 </div>
@@ -154,7 +154,7 @@ export default function Contact({ dict }: ContactProps) {
                     name="email" 
                     placeholder={dict.emailPlaceholder}
                     disabled={status === "loading"}
-                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
+                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple focus:bg-brand-bg transition-all duration-200 font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
                     required
                   />
                 </div>
@@ -169,7 +169,7 @@ export default function Contact({ dict }: ContactProps) {
                     rows={4}
                     placeholder={dict.messagePlaceholder}
                     disabled={status === "loading"}
-                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 resize-none disabled:opacity-50"
+                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple focus:bg-brand-bg transition-all duration-200 font-medium text-brand-text placeholder:text-brand-text/30 resize-none disabled:opacity-50"
                     required
                   ></textarea>
                 </div>
@@ -180,10 +180,12 @@ export default function Contact({ dict }: ContactProps) {
                 )}
 
                 {/* Tombol Kirim Dinamis */}
-                <button 
+                <motion.button 
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full inline-flex justify-center items-center gap-2 px-8 py-4 bg-brand-text text-white font-black rounded-2xl shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:bg-brand-text cursor-pointer disabled:cursor-not-allowed"
+                  whileHover={status === "loading" ? undefined : { y: -2 }}
+                  whileTap={status === "loading" ? undefined : { scale: 0.985 }}
+                  className="w-full inline-flex justify-center items-center gap-2 px-8 py-4 bg-brand-purple text-white font-black rounded-2xl shadow-md hover:bg-brand-purple/90 hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:bg-brand-purple cursor-pointer disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2"
                 >
                   {status === "loading" ? (
                     <>
@@ -194,7 +196,7 @@ export default function Contact({ dict }: ContactProps) {
                       <Send className="w-5 h-5" /> {dict.send}
                     </>
                   )}
-                </button>
+                </motion.button>
 
               </form>
             </div>

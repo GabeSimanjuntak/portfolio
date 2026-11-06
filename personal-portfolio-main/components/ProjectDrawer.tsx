@@ -48,6 +48,15 @@ export default function ProjectDrawer({ isOpen, onClose, project, dict }: Projec
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   // Ekstrak data dari format MDX dengan aman
   const data = project?.frontmatter || project?.meta || project || {};
   
@@ -78,6 +87,9 @@ export default function ProjectDrawer({ isOpen, onClose, project, dict }: Projec
             exit={{ x: "100%", boxShadow: "-20px 0 50px rgba(0,0,0,0)" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed top-0 right-0 h-[100dvh] w-full max-w-3xl bg-brand-bg z-[70] overflow-y-auto flex flex-col border-l border-brand-text/10 shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
           >
             {/* Header Laci */}
             <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-brand-text/5">
