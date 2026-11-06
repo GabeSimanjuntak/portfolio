@@ -32,6 +32,7 @@ interface SkillsProps {
     githubActiveSince: string;
     githubStatsLoading: string;
     githubStatsError: string;
+    githubStatsUnavailable: string;
   };
 }
 
