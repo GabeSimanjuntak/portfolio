@@ -117,13 +117,12 @@ export default function Navbar({ locale }: NavbarProps) {
       <nav className="flex items-center gap-1 md:gap-2 bg-white/80 backdrop-blur-md border-2 border-brand-text/10 px-2 md:px-4 py-2 rounded-full shadow-lg">
         
         {/* Logo */}
-        <a 
-          href="#home" 
-          onClick={() => handleNavLinkClick("home")}
-          className="font-black text-lg md:text-xl tracking-tighter px-2 text-brand-text hover:scale-105 transition-transform"
+        <span
+          aria-label="GAS"
+          className="font-black text-lg md:text-xl tracking-tighter px-2 text-brand-text select-none"
         >
           GAS<span className="text-brand-pink">.</span>
-        </a>
+        </span>
 
         <div className="h-5 md:h-6 w-[1px] bg-brand-text/10 mx-1" />
 

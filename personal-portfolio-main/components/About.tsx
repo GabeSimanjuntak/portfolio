@@ -78,8 +78,8 @@ export default function About({ dict }: AboutProps) {
           {/* Tombol Container */}
           <div className="pt-2">
             <a
-              href="/CV-DeftValianExanova.pdf"
-              download="CV-DeftValianExanova.pdf"
+              href="/CV-GabeAkasiaSimanjuntak.pdf"
+              download="CV-GabeAkasiaSimanjuntak.pdf"
               // fix for button clipping: make horizontal padding responsive (px-6 -> px-8)
               className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-3.5 bg-brand-text text-white font-black rounded-full shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
