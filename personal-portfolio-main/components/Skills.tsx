@@ -234,7 +234,7 @@ export default function Skills({ dict, locale }: SkillsProps) {
     }
 
     let current = 0;
-    let currentCursor = new Date(`${currentStart}T00:00:00Z`);
+    const currentCursor = new Date(`${currentStart}T00:00:00Z`);
     while ((counts.get(currentCursor.toISOString().slice(0, 10)) ?? 0) > 0) {
       current += 1;
       currentCursor.setUTCDate(currentCursor.getUTCDate() - 1);
