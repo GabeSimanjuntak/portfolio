@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown, Disc3, Music2, Pause, Play, SkipBack, SkipForward } from "lucide-react";
 
 const tracks = [
   { title: "love.", artist: "wave to earth", src: "/music/love.mp3" },
-  { title: "Scott Street", artist: "Phoebe Bridgers", src: "/music/scott-street.mp3" },
-  { title: "I'd Rather Pretend", artist: "Bryant Barnes", src: "/music/id-rather-pretend.mp3" },
+  { title: "Cool Enough for You", artist: "Skyline", src: "/music/cool-enough-for-you.mp3" },
+  { title: "A Sorrowful Reunion", artist: "Reality Club", src: "/music/a-sorrowful-reunion.mp3" },
+  { title: "Keep You Safe", artist: "Yahya", src: "/music/keep-you-safe.mp3" },
+  { title: "Walking Back Home", artist: "FUR", src: "/music/walking-back-home.mp3" },
 ];
 
 // Keep one audio instance while the locale layout remounts during client navigation.
@@ -21,27 +23,42 @@ function getSharedAudio(): HTMLAudioElement {
 }
 
 function getTrackIndex(audio: HTMLAudioElement) {
-  return tracks.findIndex((item) => new URL(item.src, window.location.origin).href === audio.src);
+  const activeSource = audio.currentSrc || audio.src;
+  if (!activeSource) return -1;
+
+  const activePath = new URL(activeSource, window.location.href).pathname;
+  return tracks.findIndex((item) => new URL(item.src, window.location.href).pathname === activePath);
 }
 
 export default function MusicPlayer() {
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentTrackRef = useRef(0);
 
   useEffect(() => {
     const audio = getSharedAudio();
     const syncState = () => {
       setIsPlaying(!audio.paused);
       const index = getTrackIndex(audio);
-      if (index >= 0) setCurrentTrack(index);
+      if (index >= 0) {
+        currentTrackRef.current = index;
+        setCurrentTrack(index);
+      }
     };
     const playNext = () => {
-      const nextIndex = (getTrackIndex(audio) + 1) % tracks.length;
-      audio.src = tracks[nextIndex].src;
-      audio.load();
+      const activeIndex = getTrackIndex(audio);
+      const nextIndex = ((activeIndex >= 0 ? activeIndex : currentTrackRef.current) + 1) % tracks.length;
+      currentTrackRef.current = nextIndex;
       setCurrentTrack(nextIndex);
-      void audio.play().catch(() => setIsPlaying(false));
+      setIsPlaying(false);
+      audio.src = new URL(tracks[nextIndex].src, window.location.href).href;
+      audio.currentTime = 0;
+      audio.load();
+      void audio.play().then(
+        () => setIsPlaying(true),
+        () => setIsPlaying(false),
+      );
     };
 
     audio.addEventListener("play", syncState);
@@ -79,6 +96,7 @@ export default function MusicPlayer() {
       return;
     }
 
+    currentTrackRef.current = index;
     setCurrentTrack(index);
     audio.pause();
     audio.src = tracks[index].src;
@@ -124,7 +142,7 @@ export default function MusicPlayer() {
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-sm font-bold">{item.title}</span>
-                      <span className="block truncate text-xs font-medium opacity-60">{item.artist}</span>
+                      {item.artist && <span className="block truncate text-xs font-medium opacity-60">{item.artist}</span>}
                     </span>
                     {isSelected && <Check aria-hidden="true" className="h-4 w-4 shrink-0" />}
                   </button>
@@ -145,7 +163,7 @@ export default function MusicPlayer() {
           <Music2 aria-hidden="true" className="h-4 w-4 shrink-0 text-brand-purple" />
           <span className="min-w-0">
             <span className="block truncate text-sm font-extrabold">{track.title}</span>
-            <span className="block truncate text-[10px] font-semibold text-brand-text/50">{track.artist}</span>
+            {track.artist && <span className="block truncate text-[10px] font-semibold text-brand-text/50">{track.artist}</span>}
           </span>
           <ChevronDown aria-hidden="true" className={`h-3.5 w-3.5 shrink-0 text-brand-text/50 transition-transform ${isMenuOpen ? "rotate-180" : ""}`} />
         </button>

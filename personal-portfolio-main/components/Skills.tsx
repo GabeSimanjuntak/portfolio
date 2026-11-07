@@ -84,6 +84,13 @@ const topRowSkills = [
   { name: "Next.js", href: "https://nextjs.org/docs", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
   { name: "Flutter", href: "https://docs.flutter.dev/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" },
   { name: "Dart", href: "https://dart.dev/guides", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" },
+  { name: "PyTorch", href: "https://pytorch.org/docs/stable/index.html", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" },
+  { name: "Pandas", href: "https://pandas.pydata.org/docs/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
+  { name: "TensorFlow", href: "https://www.tensorflow.org/guide", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
+  { name: "Scikit-learn", href: "https://scikit-learn.org/stable/user_guide.html", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" },
+  { name: "Matplotlib", href: "https://matplotlib.org/stable/users/index.html", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" },
+  { name: "Seaborn", href: "https://seaborn.pydata.org/tutorial.html", img: "/images/skills/seaborn.png" },
+  { name: "SciPy", href: "https://docs.scipy.org/doc/scipy/", img: "/images/skills/scipy.png" },
 ];
 
 const bottomRowSkills = [
@@ -94,6 +101,13 @@ const bottomRowSkills = [
   { name: "Git", href: "https://git-scm.com/doc", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
   { name: "Bootstrap", href: "https://getbootstrap.com/docs/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" },
   { name: "REST API", href: "https://developer.mozilla.org/en-US/docs/Glossary/REST", img: "/images/skills/rest-api.svg" },
+  { name: "Roboflow", href: "https://docs.roboflow.com/", img: "/images/skills/roboflow.png" },
+  { name: "Django", href: "https://docs.djangoproject.com/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" },
+  { name: "Flask", href: "https://flask.palletsprojects.com/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" },
+  { name: "Selenium", href: "https://www.selenium.dev/documentation/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" },
+  { name: "Docker", href: "https://docs.docker.com/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+  { name: "FastAPI", href: "https://fastapi.tiangolo.com/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" },
+  { name: "Optuna", href: "https://optuna.readthedocs.io/", img: "/images/skills/optuna.png" },
 ];
 
 export default function Skills({ dict, locale }: SkillsProps) {
@@ -568,10 +582,10 @@ export default function Skills({ dict, locale }: SkillsProps) {
           100% { transform: translateX(0); }
         }
         .animate-scroll {
-          animation: scroll 40s linear infinite;
+          animation: scroll 55s linear infinite;
         }
         .animate-scroll-reverse {
-          animation: scroll-reverse 40s linear infinite;
+          animation: scroll-reverse 55s linear infinite;
         }
         .pause-on-hover:hover {
           animation-play-state: paused;
@@ -601,32 +615,29 @@ function GitHubMetric({ icon: Icon, label, value }: { icon: typeof Star; label: 
 }
 
 // Komponen Card dengan Hover Interaktif Baru
-function SkillCard({ skill }: { skill: { name: string; img: string; href: string } }) {
+function SkillCard({ skill }: { skill: { name: string; img: string } }) {
   return (
-    <motion.a
-      href={skill.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${skill.name} official documentation`}
-      title={`Open ${skill.name} documentation`}
+    <motion.div
       whileHover={{ y: -5, scale: 1.06 }}
-      whileTap={{ scale: 0.96 }}
-      className="group flex items-center gap-3 md:gap-4 px-6 md:px-8 py-4 md:py-5 bg-white/60 backdrop-blur-md border border-brand-text/10 rounded-[24px] shadow-sm hover:shadow-xl hover:border-brand-purple/30 hover:bg-white transition-[box-shadow,border-color,background-color] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple"
+      className="group flex items-center gap-3 md:gap-4 px-6 md:px-8 py-4 md:py-5 bg-white/60 backdrop-blur-md border border-brand-text/10 rounded-[24px] shadow-sm hover:shadow-xl hover:border-brand-purple/30 hover:bg-white transition-[box-shadow,border-color,background-color] duration-300"
     >
       
       {/* PERBAIKAN 2: Grayscale dihapus, warna asli selalu tampil */}
-      <img 
-        src={skill.img} 
-        alt={skill.name} 
-        className="w-6 h-6 md:w-8 md:h-8 object-contain drop-shadow-sm group-hover:drop-shadow-md transition-all duration-300" 
-      />
+      {skill.img && (
+        <img
+          src={skill.img}
+          alt=""
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+          className="h-6 w-6 shrink-0 object-contain drop-shadow-sm transition-all duration-300 group-hover:drop-shadow-md md:h-8 md:w-8"
+        />
+      )}
       
       {/* PERBAIKAN 3: Teks berubah warna saat di-hover */}
       <span className="font-bold text-brand-text group-hover:text-brand-purple text-base md:text-lg whitespace-nowrap transition-colors duration-300">
         {skill.name}
       </span>
       
-    </motion.a>
+    </motion.div>
   );
 }
 

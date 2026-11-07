@@ -94,7 +94,7 @@ export default function Footer({ locale }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-end gap-4 border-b border-brand-text/10 pt-5 pb-5">
+        <div className="mt-10 flex items-center justify-between gap-4 border-b border-brand-text/10 pt-5 pb-5">
           <motion.button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

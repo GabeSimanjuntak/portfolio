@@ -77,7 +77,7 @@ export default function ProjectDrawer({ isOpen, onClose, project, dict }: Projec
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-brand-text/60 z-[60] cursor-pointer"
+            className="fixed inset-0 bg-black/60 z-[60] cursor-pointer"
           />
 
           {/* Panel Laci (Meluncur dari kanan) */}
@@ -134,7 +134,7 @@ export default function ProjectDrawer({ isOpen, onClose, project, dict }: Projec
                       return (
                         <span 
                           key={i} 
-                          className="flex items-center gap-2 px-4 py-2 bg-brand-text/5 text-brand-text/80 text-sm font-bold rounded-full border border-brand-text/5 hover:bg-white hover:shadow-sm transition-all"
+                          className="flex items-center gap-2 px-4 py-2 bg-brand-text/5 text-brand-text/80 text-sm font-bold rounded-full border border-brand-text/5 hover:bg-brand-bg hover:shadow-sm transition-all"
                         >
                           {iconUrl && (
                             <img src={iconUrl} alt={tag} className="w-4 h-4 object-contain" />

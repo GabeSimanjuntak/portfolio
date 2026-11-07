@@ -140,8 +140,8 @@ export default function Hero({ dict }: HeroProps) {
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white p-4 bg-white/10 rounded-full shadow-lg backdrop-blur-md border border-white/10">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/images/hero2.webp"
-                    alt="Foto Profil dftvln"
+                    src="/images/profile-gabe.jpg"
+                    alt="Foto profil Gabe Simanjuntak"
                     width={40}
                     height={40}
                     className="rounded-full aspect-square border border-white/20 object-cover"

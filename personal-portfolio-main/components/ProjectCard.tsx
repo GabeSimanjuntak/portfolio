@@ -84,7 +84,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 // UPDATE: Desain Pill Baru dengan Logo
                 <span
                   key={i}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-text/5 text-brand-text/80 text-xs font-bold rounded-full border border-brand-text/5 transition-colors group-hover:bg-white group-hover:shadow-sm group-hover:border-brand-text/10"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-text/5 text-brand-text/80 text-xs font-bold rounded-full border border-brand-text/5 transition-colors group-hover:bg-brand-bg group-hover:shadow-sm group-hover:border-brand-text/10"
                 >
                   {/* Cek apakah logonya ada di fungsi mapping kita */}
                   {getTechIcon(tag) && (
